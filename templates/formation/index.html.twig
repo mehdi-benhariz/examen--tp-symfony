@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}formation List{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-4">Formation List</h1>
+        <div class="text-end mb-3">
+            <a href="{{ path('formation_new') }}" class="btn btn-primary">Create New Formation</a>
+        </div>
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id de formation</th>
+                    <th scope="col">nom </th>
+                    <th scope="col">date de formation</th>
+                    <th scope="col">prix </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for formation in formations %}
+                    <tr>
+                        <th scope="row">{{ formation.id }}</th>
+                        <td>{{ formation.id }}</td>
+                        <td>{{ formation.nom }}</td>
+                        <td>{{ formation.date }}</td>
+                        <td>{{ formation.prix }}</td>
+
+                         <td>
+                            <a href="{{ path('formation_choisir', {'id': formation.id}) }}" class="btn btn-info btn-sm">Choisir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
